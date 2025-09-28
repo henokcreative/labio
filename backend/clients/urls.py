@@ -1,7 +1,8 @@
-from django.urls import path
-from .views import ClientListCreateView, ContractListCreateView
+from rest_framework import routers
+from .views import MessageViewSet, ContractViewSet
 
-urlpatterns = [
-    path('clients/', ClientListCreateView.as_view(), name='client-list-create'),
-    path('contracts/', ContractListCreateView.as_view(), name='contract-list-create'),
-]
+router = routers.DefaultRouter()
+router.register(r'messages', MessageViewSet, basename='message')
+router.register(r'contracts', ContractViewSet, basename='contract')
+
+urlpatterns = router.urls

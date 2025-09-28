@@ -21,10 +21,10 @@ from rest_framework import routers
 from clients.views import MessageViewSet, ContractViewSet
 
 router = routers.DefaultRouter()
-router.register(r'clients', MessageViewSet)    # /api/clients/
-router.register(r'contracts', ContractViewSet) # /api/contracts/
+router.register(r'messages', MessageViewSet)
+router.register(r'contracts', ContractViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('clients.urls')),  # just include it once
+    path('api/', include(router.urls)),  # all API endpoints under /api/
 ]
