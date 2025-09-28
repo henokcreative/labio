@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 DATABASES = {
     "default": dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",  # fallback for local dev
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
         conn_max_age=600,
-        ssl_require=True  # ensures SSL connection to Postgres
+        ssl_require=os.getenv("DATABASE_URL") is not None  # only apply SSL if using Postgres
     )
 }
 
