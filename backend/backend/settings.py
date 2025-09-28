@@ -67,25 +67,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# DATABASE
-if os.environ.get("DATABASE_URL"):
-    # Use Postgres on Render
+# Detect Render deployment
+IS_RENDER = os.environ.get("RENDER", None) is not None
+
+if IS_RENDER:
+    # Use Render's Postgres database
     DATABASES = {
-        "default": dj_database_url.config(
-            default=os.environ["DATABASE_URL"],
+        "default": dj_database_url.parse(
+            os.environ.get("DATABASE_URL"),
             conn_max_age=600,
-            ssl_require=True  # enforce SSL for Postgres
+            ssl_require=True
         )
     }
 else:
-    # Fallback for local dev
+    # Local development uses SQLite
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
