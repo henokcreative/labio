@@ -22,7 +22,7 @@ from django.http import JsonResponse
 from clients.views import MessageViewSet, ContractViewSet
 
 router = routers.DefaultRouter()
-router.register(r'clients', MessageViewSet, basename='client')
+router.register(r'messages', MessageViewSet, basename='message')
 router.register(r'contracts', ContractViewSet, basename='contract')
 
 def home(request):
