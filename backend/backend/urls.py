@@ -28,5 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # API routes
     path('api/clients/', include('clients.urls')),  # ← register the clients API
+    path('api/', include('clients.urls')),
+
 
 ]
