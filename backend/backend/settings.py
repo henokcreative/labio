@@ -67,20 +67,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-# Detect Render deployment
-IS_RENDER = os.environ.get("RENDER", None) is not None
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
-if IS_RENDER:
-    # Use Render's Postgres database
+if DATABASE_URL:
+    # Use Postgres on Render (or any environment with DATABASE_URL set)
     DATABASES = {
         "default": dj_database_url.parse(
-            os.environ.get("DATABASE_URL"),
+            DATABASE_URL,
             conn_max_age=600,
             ssl_require=True
         )
     }
 else:
-    # Local development uses SQLite
+    # Fallback to SQLite locally or if DATABASE_URL is missing
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
