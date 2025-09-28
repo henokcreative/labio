@@ -107,7 +107,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://labio-frontend.vercel.app",  # Update when frontend is deployed
+    "https://labio.onrender.com",          # Update when backend is deployed
 ]
+ALLOWED_HOSTS = ['labio.onrender.com', 'localhost', '127.0.0.1']
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
