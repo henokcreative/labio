@@ -18,13 +18,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from django.http import JsonResponse
 from clients.views import MessageViewSet, ContractViewSet
 
 router = routers.DefaultRouter()
 router.register(r'clients', MessageViewSet, basename='client')
 router.register(r'contracts', ContractViewSet, basename='contract')
 
+def home(request):
+    return JsonResponse({"message": "Labio Backend is running!"})
+
 urlpatterns = [
+    path('', home),  # Root endpoint
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 ]

@@ -36,8 +36,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
-
-    # Your apps
     'clients',
 ]
 
