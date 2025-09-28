@@ -21,8 +21,8 @@ from rest_framework import routers
 from clients.views import MessageViewSet, ContractViewSet
 
 router = routers.DefaultRouter()
-router.register(r'clients', MessageViewSet, basename='client')  # alias clients → MessageViewSet
-router.register(r'contracts', ContractViewSet)
+router.register(r'clients', MessageViewSet, basename='client')
+router.register(r'contracts', ContractViewSet, basename='contract')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
