@@ -1,22 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Message
+# dashboard/views.py
+from django.shortcuts import render, get_object_or_404
+from clients.models import Message  # <-- use the real Message model
 
-def dashboard_home(request):
-    messages = Message.objects.order_by("-created_at")
-    return render(request, "dashboard/list.html", {"messages": messages})
+def inbox(request):
+    """Simple inbox listing all contact messages."""
+    messages = Message.objects.all().order_by('-created_at')
+    return render(request, 'dashboard/inbox.html', {'messages': messages})
 
 def message_detail(request, pk):
-    msg = get_object_or_404(Message, pk=pk)
-    return render(request, "dashboard/detail.html", {"message": msg})
-
-def message_reply(request, pk):
-    msg = get_object_or_404(Message, pk=pk)
-
-    if request.method == "POST":
-        reply_text = request.POST.get("reply")
-        msg.reply = reply_text
-        msg.handled = True
-        msg.save()
-        return redirect("message_detail", pk=pk)
-
-    return render(request, "dashboard/reply.html", {"message": msg})
+    """View a single message."""
+    message = get_object_or_404(Message, pk=pk)
+    return render(request, 'dashboard/message_detail.html', {'message': message})
