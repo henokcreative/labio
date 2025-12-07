@@ -21,6 +21,7 @@ from rest_framework import routers
 from django.http import JsonResponse
 from clients.views import MessageViewSet, ContractViewSet
 
+
 router = routers.DefaultRouter()
 router.register(r'messages', MessageViewSet, basename='message')
 router.register(r'contracts', ContractViewSet, basename='contract')
@@ -32,4 +33,6 @@ urlpatterns = [
     path('', home),  # Root endpoint
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('dashboard/', include('dashboard.urls')),
+
 ]

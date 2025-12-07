@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "replace-this-in-production")
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
 
 # Hosts
 ALLOWED_HOSTS = ['labio.onrender.com', 'localhost', '127.0.0.1']
@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'clients',
+    'dashboard',
+    
 ]
 
 # Middleware

@@ -1,0 +1,21 @@
+<h1>Messages Inbox</h1>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Received</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    {% for msg in messages %}
+    <tr>
+        <td>{{ msg.name }}</td>
+        <td>{{ msg.email }}</td>
+        <td>{{ msg.created_at }}</td>
+        <td>{% if msg.handled %}Handled{% else %}New{% endif %}</td>
+        <td><a href="{% url 'message_detail' msg.id %}">View</a></td>
+    </tr>
+    {% endfor %}
+</table>

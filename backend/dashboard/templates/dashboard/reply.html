@@ -1,0 +1,12 @@
+<h2>Reply to {{ message.name }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <textarea name="reply" rows="6" style="width:100%">{{ message.reply }}</textarea>
+    <br><br>
+    
+    <button type="submit">Send Reply (save)</button>
+</form>
+
+<a href="{% url 'message_detail' message.id %}">Cancel</a>

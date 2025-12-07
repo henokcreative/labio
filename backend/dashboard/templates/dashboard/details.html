@@ -1,0 +1,13 @@
+<h2>Message from {{ message.name }}</h2>
+
+<p><strong>Email:</strong> {{ message.email }}</p>
+<p><strong>Message:</strong> {{ message.message }}</p>
+
+{% if message.reply %}
+<hr>
+<h3>Your Response</h3>
+<p>{{ message.reply }}</p>
+{% endif %}
+
+<a href="{% url 'message_reply' message.id %}">Reply</a>
+<a href="/dashboard/">Back to Inbox</a>
