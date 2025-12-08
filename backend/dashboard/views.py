@@ -5,7 +5,7 @@ from clients.models import Message  # <-- use the real Message model
 def inbox(request):
     """Simple inbox listing all contact messages."""
     messages = Message.objects.all().order_by('-created_at')
-    return render(request, 'dashboard/inbox.html', {'messages': messages})
+    return render(request, 'dashboard/message_inbox.html', {'messages': messages})
 
 def message_detail(request, pk):
     """View a single message."""
