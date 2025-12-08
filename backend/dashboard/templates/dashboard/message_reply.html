@@ -2,11 +2,11 @@
 
 <form method="POST">
     {% csrf_token %}
-    
     <textarea name="reply" rows="6" style="width:100%">{{ message.reply }}</textarea>
     <br><br>
-    
-    <button type="submit">Send Reply (save)</button>
+    <button type="submit">Send Reply</button>
 </form>
 
-<a href="{% url 'message_detail' message.id %}">Cancel</a>
+<br>
+
+<a href="{% url 'message_details' message.id %}">Back</a>

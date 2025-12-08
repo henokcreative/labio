@@ -52,22 +52,21 @@
 </head>
 <body>
   <div class="card">
-    <h1>Message from {{ message.name }}</h1>
-    <div class="meta">
-      <div>Email: <a href="mailto:{{ message.email }}">{{ message.email }}</a></div>
-      <div>Received: {{ message.created_at|date:"Y-m-d H:i" }}</div>
-    </div>
+<h2>Message from {{ message.name }}</h2>
 
-    <div class="message-body">
-      {{ message.message }}
-    </div>
+<p><strong>Email:</strong> {{ message.email }}</p>
+<p><strong>Message:</strong> {{ message.message }}</p>
 
-    <div class="actions">
-      <a class="primary" href="mailto:{{ message.email }}?subject=Re:%20Your%20message%20to%20Labio">
-        Reply via email
-      </a>
-      <a href="/dashboard/">Back to inbox</a>
-    </div>
+{% if message.reply %}
+    <hr>
+    <h3>Your Reply</h3>
+    <p>{{ message.reply }}</p>
+{% endif %}
+
+<br>
+
+<a href="{% url 'message_reply' message.id %}">Reply</a>
+<a href="{% url 'message_inbox' %}">Back to Inbox</a>
   </div>
 </body>
 </html>
