@@ -1,0 +1,90 @@
+.projects-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100% !important;
+}
+
+.projects-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.projects-card:hover img {
+  transform: scale(1.05);
+}
+.projects-card:hover h3 {
+  transform: scale(1.1);
+  font-weight: bold;
+  color: #ffc;
+  text-shadow: black 1px 1px 2px;
+
+}
+
+/* Overlay */
+.projects-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(223, 70, 70, 0.8); 
+  transition: background-color 0.3s ease;
+}
+
+.projects-card:hover::before {
+  background-color: rgba(0, 0, 0, 0.823);
+}
+
+.projects-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;           /* or width: 90% if you want some side padding */
+  padding: 1rem;
+  color: #fff;
+  z-index: 2;
+  text-align: center;    /* center text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center children horizontally */
+  justify-content: center;
+  margin: 0;             /* fix typo from 1re -> 1rem if present */
+}
+
+.projects-info h3 {
+  margin: 0;
+  font-size: 1.25rem;
+   text-shadow: #ffc 1px 1px 2px;
+}
+
+
+.projects-info p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.projects-info a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #ff0000; 
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.projects-info a:hover {
+  background-color: #e60000;
+    color: #fff;
+
+}
