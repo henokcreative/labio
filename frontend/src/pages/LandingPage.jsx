@@ -18,12 +18,30 @@ const LandingPage = () => {
     <div className="landing-page">
       {/* Hero Section */}
       <Hero
-        title="Welcome to Labio Creative Studio"
+        title="LaBio Creative Studio"
+        subheading="Research Media Production"
         subtitle="Digital Print • Photography • Videography • Web Development"
         ctaText="View Our Work"
         ctaLink="#projects"
       />
 
+      {/* Mission Section */}
+      <section className="about-mission">
+        <h2>Our Mission</h2>
+        <p>
+          Labio empowers scientists and creatives with the knowledge and tools
+          they need to succeed in the business of science and design.
+        </p>
+      </section>
+      {/* Services Section */}
+      <section className="services">
+        <h2>Our Services</h2>
+        <p>
+          We provide digital print, photography, videography, and web
+          development services for small businesses. Our goal is to help you
+          create visually stunning and interactive digital experiences.
+        </p>
+      </section>
       {/* Featured Projects Section */}
       <section className="gallery" id="projects">
         <h2>Featured Projects</h2>
