@@ -51,22 +51,25 @@
   </style>
 </head>
 <body>
-  <div class="card">
-<h2>Message from {{ message.name }}</h2>
+<div class="card">
+    <h2>Message from {{ message.name }}</h2>
 
-<p><strong>Email:</strong> {{ message.email }}</p>
-<p><strong>Message:</strong> {{ message.message }}</p>
+    <p><strong>Email:</strong> {{ message.email }}</p>
+    <p><strong>Message:</strong> {{ message.message }}</p>
 
-{% if message.reply %}
-    <hr>
-    <h3>Your Reply</h3>
-    <p>{{ message.reply }}</p>
-{% endif %}
+    {% if message.reply %}
+        <hr>
+        <h3>Your Reply</h3>
+        <p>{{ message.reply }}</p>
+    {% endif %}
 
-<br>
+    <br>
 
-<a href="{% url 'message_reply' message.id %}">Reply</a>
-<a href="{% url 'message_inbox' %}">Back to Inbox</a>
-  </div>
+    <!-- Reply Button -->
+    <a class="button" href="{% url 'dashboard:message_reply' message.id %}">Reply</a>
+
+    <!-- Back to Inbox -->
+    <a class="button" href="{% url 'dashboard:message_inbox' %}">Back to Inbox</a>
+</div>
 </body>
 </html>

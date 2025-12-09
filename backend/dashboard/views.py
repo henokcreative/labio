@@ -1,7 +1,7 @@
+# dashboard/views.py
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Message
+from clients.models import Message
 from django.utils import timezone
-
 
 def message_inbox(request):
     messages = Message.objects.order_by("-created_at")
@@ -21,6 +21,6 @@ def message_reply(request, pk):
         message.reply = reply_text
         message.replied_at = timezone.now()
         message.save()
-        return redirect("message_details", pk=pk)
+        return redirect("dashboard/message_detail", pk=pk)
 
     return render(request, "dashboard/message_reply.html", {"message": message})

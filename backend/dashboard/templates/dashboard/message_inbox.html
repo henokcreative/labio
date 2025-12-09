@@ -71,7 +71,7 @@
           <td><a href="mailto:{{ m.email }}">{{ m.email }}</a></td>
           <td>{{ m.created_at|date:"Y-m-d H:i" }}</td>
           <td>
-            <a class="button" href="{% url 'dashboard:message_detail' m.id %}">Open</a>
+<a class="button" href="{% url 'dashboard:message_detail' m.id %}">Open</a>
           </td>
         </tr>
       {% endfor %}
