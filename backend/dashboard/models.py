@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from clients.models import Message      // Importing Message model from clients app
+from clients.models import Message     
 
 class Message(models.Model):
     name = models.CharField(max_length=255)
