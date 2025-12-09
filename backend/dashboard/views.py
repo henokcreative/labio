@@ -7,11 +7,9 @@ def message_inbox(request):
     messages = Message.objects.order_by("-created_at")
     return render(request, "dashboard/message_inbox.html", {"messages": messages})
 
-
 def message_detail(request, pk):
     message = get_object_or_404(Message, id=pk)
     return render(request, "dashboard/message_detail.html", {"message": message})
-
 
 def message_reply(request, pk):
     message = get_object_or_404(Message, id=pk)
@@ -21,6 +19,8 @@ def message_reply(request, pk):
         message.reply = reply_text
         message.replied_at = timezone.now()
         message.save()
-        return redirect("dashboard/message_detail", pk=pk)
+
+        # ✔️ Correct redirect using named URL inside namespace
+        return redirect("dashboard:message_detail", pk=pk)
 
     return render(request, "dashboard/message_reply.html", {"message": message})

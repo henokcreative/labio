@@ -1,0 +1,98 @@
+body {
+  font-family: Inter, sans-serif;
+  background: #f7f7f9;
+  padding: 40px;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.inbox-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.inbox-table th {
+  background: #f2f2f7;
+  text-align: left;
+  padding: 12px;
+}
+
+.inbox-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.inbox-table tr.unread td {
+  font-weight: 600;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: white;
+}
+
+.badge.unread {
+  background: #d9534f;
+}
+
+.badge.replied {
+  background: #5cb85c;
+}
+
+.button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: #ddd;
+  color: #333;
+}
+
+.button.primary {
+  background: #007bff;
+  color: white;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.msg-box, .reply-box {
+  background: #f9f9f9;
+  padding: 14px;
+  border-radius: 8px;
+  margin: 10px 0 20px;
+}

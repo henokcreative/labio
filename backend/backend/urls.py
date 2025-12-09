@@ -12,13 +12,12 @@ def home(request):
     return JsonResponse({"message": "Labio Backend is running!"})
 
 urlpatterns = [
-    path('', home),  # Root endpoint
+    path('', home),
     path('admin/', admin.site.urls),
 
     # API
     path('api/', include(router.urls)),
 
-    # Dashboard (IMPORTANT → add namespace)
-    path('dashboard/', include('dashboard.urls', namespace='dashboard')),
-    
+    # Dashboard
+    path('dashboard/', include('dashboard.urls')),  # <-- BEST
 ]
