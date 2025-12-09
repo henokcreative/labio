@@ -20,4 +20,5 @@ urlpatterns = [
 
     # Dashboard (IMPORTANT → add namespace)
     path('dashboard/', include('dashboard.urls', namespace='dashboard')),
+    
 ]
