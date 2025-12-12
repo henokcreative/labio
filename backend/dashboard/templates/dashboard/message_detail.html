@@ -8,7 +8,7 @@
 <body>
 <div class="container card">
 
-    <a class="back" href="{% url 'dashboard:message_inbox' %}">← Back to Inbox</a>
+    <a class="button btn" href="{% url 'dashboard:message_inbox' %}">← Back to Inbox</a>
 
     <h2>Message from {{ message.name }}</h2>
 
@@ -25,7 +25,7 @@
         </div>
     {% endif %}
 
-    <a class="button primary" href="{% url 'dashboard:message_reply' message.id %}">
+    <a class="button btn" href="{% url 'dashboard:message_reply' message.id %}">
         Reply
     </a>
 

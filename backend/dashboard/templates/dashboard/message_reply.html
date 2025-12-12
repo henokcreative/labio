@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Reply</title>
     <link rel="stylesheet" href="/static/dashboard/dashboard.css">
 </head>
 
 <body>
-<div class="container card">
-    <a class="back" href="{% url 'dashboard:message_detail' message.id %}">← Back</a>
+    <div class="container card">
+        <a class="back" href="{% url 'dashboard:message_detail' message.id %}">← Back</a>
 
-    <h2>Reply to {{ message.name }}</h2>
+        <h2>Reply to {{ message.name }}</h2>
 
-    <form method="POST">
-        {% csrf_token %}
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="reply" rows="6">{{ message.reply }}</textarea>
+            <button type="submit">Send Reply</button>
+        </form>
 
-        <label>Your reply</label>
-        <textarea name="reply" rows="7">{{ message.reply }}</textarea>
-
-        <button type="submit" class="button primary">Send Reply</button>
-    </form>
-</div>
+        <a href="{% url 'dashboard:message_detail' message.id %}">Back</a>
+    </div>
 </body>
+
 </html>

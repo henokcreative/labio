@@ -19,8 +19,6 @@ def message_reply(request, pk):
         message.reply = reply_text
         message.replied_at = timezone.now()
         message.save()
-
-        # ✔️ Correct redirect using named URL inside namespace
         return redirect("dashboard:message_detail", pk=pk)
 
     return render(request, "dashboard/message_reply.html", {"message": message})
